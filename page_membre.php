@@ -1,9 +1,23 @@
-<!-- page acceuil sans connexion -->
+<?php session_start(); 
 
 
-<!DOCTYPE html>  
+//on regarde si la variable de session exiqste toujours 
+if(empty($_SESSION['username']))
+{
+	//si n'existe pas on redirige vers la page d'acceuil
+	header('Location: test.php'); 
+	exit(); 
+}
+?>
 
-<html> 
+
+<!--On affiche la page membre-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+  <!-- page acceuil sans connexion -->
+
+
 
 <head>          
 
@@ -117,51 +131,29 @@
                      
 
 
+
+                      
+
+                      <div class="Deconnexion">
+                              <nav>
+                                
+                                      <a href="deconnexion.php">Déconnexion</a>
+                              </nav>
+                      </div>
+                
                          
 
                    
-                         <div class="login">
-
-                          <nav>
-
-                   
-                              
-                                      <a href="javascript:ouvre('SignUP.php')"> Sign Up </a> <!-- lien du popup vers l'inscription -->
-
-                                       <script langage="javascript">
-                                            
-                                            function ouvre(page) /*permet d'ouvrir une pop-up afin de se co ou de s'inscrire*/
-                                            {
-                                              ff=window.open(page, "nom_popup", "menubar=no, status=no, scrollbars=no, menubar=no, width=500, height=500");
-                                            }
-
-                                       </script>
-
-                                      <!-- espace -->
-                              		    &nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp
-                                      <!-- espace -->
-
-                                   <!--login permet de se connecter si utilisateur déja inscrit, grâce à My SQL-->
-
-                          		     <a href="lOGIN.php"> Login </a> 
-
-                          		
-                          	
-                          </nav>
-                        </div>  
                        
-              
+
 
           </div>
-
-	           
-	         
-      
     
 
 <hr />
 
-   <section> 
+
+        <section> 
                  <!--1er block-->
                  <div class="produits_proche"> 
                    
@@ -169,11 +161,9 @@
 
                          <p> <img src="images/manette.jpg"/> </p><br />
                          <p> A 5OO m </p>
+                </div> 
 
 
-
-
-                 </div> 
         
                 <!--2e block-->
                  <div class="map"> 
@@ -183,23 +173,25 @@
 
                 </div>
 
+
+
                 <!--3e block-->
 
-             
-
-                     <div class="compte"> 
-
-                       
           
-                          <h1> Compte </h1>
+                 <div class="compte">
 
+                        <h1> <?php $_SESSION['username']; ?></h1>
+                        <hr />
+
+                        <img src="images/hugo_photo.jpg"/>
+                        <hr />
+
+                        <?php echo $_SESSION['mail']; ?>
+                 </div>
+
+                 
               
-                          <img src="images/compte.png"/>
-                          <hr /> <!--ligne de séparation horizontal-->
-                          <p>Mes Trophés</p>
-                  </div>
-
-   </section>
+        </section>
                  
 
                    
@@ -266,5 +258,20 @@
 
 </html>  
 
-        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
