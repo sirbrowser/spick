@@ -6,11 +6,13 @@
     <head>
  	    <meta charset="utf-8"/>
  	    <title> Inscrivez-vous </title> <br />
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="propriété.css" />
  	</head>
 
  	<body>
         <div align="center">
- 		<h3>Dossier d'inscription</h3>
+ 		<img src="signup.png" class="img-responsive"/>
 		 	<form action="cible.php" onsubmit="return verifForm(this)" method="POST" > <!--action='cible.php', avec cible.php qui s'occupera de traiter les données du formulaire-->
 
 	<!--&nbsp sert 
@@ -19,42 +21,60 @@
                     <tr>
                         <td>
                             <label>
-                                    Nom :<input type="text" name="name" placeholder="Dupont" size="30" onblur="verifName(this)" />
+                                Nom : 
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="name" onblur="verifName(this)">
+                                </div>
                             </label>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <label>
-                                    Prénom :<input type="text" name="firstName" placeholder="Jean" size="30" onblur="verifFirstName(this)" />
+                                Prénom : 
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="firstName" onblur="verifName(this)">
+                                </div>
                             </label>
                         </td>
                     </tr>
                     <tr>
                         <td>
                             <label>
-                                    Date de Naissance :<input type="text" name="date" size="30" placeholder="jj/mm/aaaa" onblur="verifDate(this)" />
+                                Date de naissance : 
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="date" onblur="verifName(this)">
+                                </div>
                             </label>
                         </td>
                     </tr>
                     <tr>
                         <td>
 					        <label>
-		                          Pseudo :<input type = "text" name = "username" placeholder = "Jean123" size= "30" onblur = "verifPseudo(this)"/>
+                                Pseudo :  
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="username" onblur="verifName(this)">
+                                </div>
 		                    </label>
 		                </td>
                     </tr>
                     <tr>
 	                    <td>
 	              	        <label>
-	              	  			   Mot de Passe :<input type = "password" name = "password" size="30" placeholder="Exemple123" onblur="verifPassword(this)"/>
+                                Mot de passe : 
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="password" onblur="verifName(this)">
+                                </div>
 	              	        </label>
 	           	        </td>
                     </tr>
                     <tr>
                         <td>
                             <label>
-                                    Mail :<input type="text" name="mail" placeholder="exemple@mail.fr" size="30" onblur="verifMail(this)"/>
+                                Mail : 
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="mail" placeholder="exemple@mail.fr" onblur="verifName(this)">
+                                </div>
                             </label>
                         </td>
                     </tr>
