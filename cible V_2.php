@@ -3,8 +3,8 @@
 
 		$bdd = new PDO('mysql:host=localhost;dbname=monsite', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)); 
 
-		$requete = $bdd -> prepare('INSERT INTO utilisateur(name, firstName, username, password, mail) VALUES(?,?,?,?,?,?)'); 
-		$requete -> execute(array($_POST['name'], $_POST ['firstName'], $_POST['username'], $_POST['password'], $_POST['mail']));
+		$requete = $bdd -> prepare('INSERT INTO utilisateur(name, firstName, username, password, mail, adresse, phone_number) VALUES(?,?,?,?,?,?,?)'); 
+		$requete -> execute(array($_POST['name'], $_POST ['firstName'], $_POST['username'], $_POST['password'] => $password_hach, $_POST['mail']), $_POST['phone_number'], $_POST['adresse']);
 
 		
  

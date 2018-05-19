@@ -5,126 +5,85 @@
 if(empty($_SESSION['username']))
 {
 	//si n'existe pas on redirige vers la page d'acceuil
-	header('Location: test.php'); 
+	header('Location: test2.php'); 
 	exit(); 
 }
 ?>
 
+<!DOCTYPE html>  
 
-<!--On affiche la page membre-->
+<html> 
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
-  <!-- page acceuil sans connexion -->
+  <head>          
+      <meta charset="UTF-8"> 
+      <title> Spick </title>
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="propriété.css" />
+      <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  </head>
+   
+   <div id="corps"> 
+   <body>
+    <div class="container-fluid">                                 <!-- BARRE DU HAUT, CONTENANT LOGO + SIGNIN + SIGNUP -->
+      <div class="row">
+        <div class="col-md-5">
+        </div>
+        <div class="col-md-1">
+          <img src="logo1.png" class="img-responsive"/>
+        </div>
+        <div class="col-md-2">
+        </div>
 
-
-
-<head>          
-
-    	<meta charset="UTF-8"> 
-    	<link rel="stylesheet" href="propriété.css" />
-	            
- </head>
-
-<div id="corps"> 
-
-       <body>
-
-        <div id="header">
-
-             
-
-	
-                    <div class="titre_principal">
-             	
-                        
-                         <div class="logo">
-                              <img src="images/logo.png" alt="logo"/> <!--permet d'insérer le logo -->
-                         </div>
-                      
-                      <h3> Une entraide riche et pratique </h3>
-                      
-                  </div> 
-               
-
-
-            <!-- barre de recherche -->
-                    <div class="recherche_p">
-
-                           <form action="/search" id="searchthis" method="get">
-                               <input id="search" name="q" type="text" placeholder="Rechercher" />
-                               <input id="search-btn" type="submit" value="Rechercher" />
-                          </form>
-
-                   </div>
-           
+        <div class="col-md-1">
+        <p></p>
+        <p></p>
+          <a href="deconnexion.php" class="btn btn-info" role="button"> Se deconnecter </a>
+          
+        </div>
        
+        <div class="col-md-1">
+        <p></p>
+        <p></p>
+          <a href="depot_annonce.php" target="droite" class="btn btn-info" role="button"> Une Annonce </a>
+          
+        </div>
+       
+          <div class="col-md-1">
+        <p></p>
+        <p></p>
+           <a href="depot_produit.php" target="droite" class="btn btn-info" role="button"> Dépôt </a>
+          
+        </div>
 
-              <!-- propriété css de la barre de recherche A CHANGER-->
 
-               <style type='text/css'>/*implémente du code css*/
+      </div>  
+    </div>
 
-                     /* Fond du gadget de la barre de recherche */
-                          .recherche_p {
-                                          background-color: #eeeeee;   /* Couleur de fond */
-                                           border-style: solid;   /* Style de la bordure  */
-                                           border-width: 1px;   /* Epaisseur de la bordure  */
-                                           border-color: black;   /* Couleur de la bordure  */
-                                           padding: 10px 10px 10px 10px;   /* Espace entre les bords et le contenu : haut droite bas gauche  */
-                                           width: 20%;
-                                           margin-top: 60px; 
-                                           margin-left: 300px; 
+    <p></p>
 
-                                           margin-bottom: 100px; 
-                                    }
-
-                  /* Champ de saisie */
-                         #searchthis #search {
-                                          background-color: #ffffff;   /* Couleur de fond */
-                                          border-style: solid;   /* Style de la bordure  */
-                                          border-width: 1px;   /* Epaisseur de la bordure  */
-                                          border-color: #dddddd;   /* Couleur de la bordure  */
-                                          padding: 5px 10px 5px 10px;   /* Espace entre les bords et le contenu : haut droite bas gauche  */
-                                          width: 98.5%;   /* Permet d'ajuster la largeur du champ de saisie à 100% */
-                                          box-sizing: border-box;   /* Important */
-                                          font-family: Lato;   /* Police du texte */
-                                          font-size: 12px;   /* Taille de la police du texte */
-                                          font-weight: normal;   /* Graisse du texte : normal = normal ; bold = gras */
-                                          letter-spacing: 1px;   /* Espacement des caractères */
-                                    }
-
-                /* Bouton valider */
-                       #searchthis #search-btn {
-                                         background-color: #10108B;   /* Couleur de fond */
-                                         border-style: solid;   /* Style de la bordure  */
-                                         border-width: 1px;   /* Epaisseur de la bordure  */
-                                         border-color: #E8B960;   /* Couleur de la bordure  */
-                                         padding: 5px 10px 5px 10px;   /* Espace entre les bords et le contenu : haut droite bas gauche  */
-                                         width: 98.5%;   /* Permet d'ajuster la largeur du champ de saisie à 100% */
-                                         box-sizing: border-box;   /* Important */
-                                         font-family: PT sans;   /* Police du texte */
-                                         font-size: 13px;   /* Taille de la police du texte */
-                                         font-weight: normal;   /* Graisse du texte : normal = normal ; bold = gras */
-                                         letter-spacing: 2px;   /* Espacement des caractères */
-                                         margin: 10px 0 0 0;   /* Espace autour du bouton : haut droite bas gauche  */
-                                         text-transform: uppercase;   /* Transforme le texte en majuscules */
-                                         color: #ffffff;   /* Couleur du texte */
-                                    }
-
-              /* Bouton valider quand survolé par la souris */
-                       #searchthis #search-btn:hover {
-                                        background-color: #ffffff;   /* Couleur de fond */
-                                        color: #E8B960;   /* Couleur du texte */
-                                        cursor: pointer;   /* Apparence du curseur comme pour un lien */
-                                    }
-
-                              </style>
+    <div class="container-fluid">                                      <!-- BARRE DE RECHERCHE -->
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+          <div class="col-md-5">
+            <div class="input-group input-group-lg">
+              <span class="input-group-addon" id="sizing-addon1"></span>
+              <input type="text" class="form-control" placeholder="Que recherchez-vous ?" aria-describedby="sizing-addon1">
+          </div>
+        </div>
+        <div class="col-md-1">
+          <button class="btn btn-info btn-lg"> Rechercher </button>
+        </div>
+      </div>  
+    </div>
 
 
 
-                   <!-- indication de la date et de l'heure-->
 
-                    <div class="date">
+    <div class="container-fluid space"></div>          <!-- ESPACE ENTRE BARRE RECHERCHE ET CARTE -->
+
+            <!-- date -->
+        <div class="date">
 
                                  <p>Aujourd'hui nous sommes le <?php echo date('d/m/Y h:i:s'); ?>.</p><!--affiche la date et l'heure-->
                      </div>
@@ -132,146 +91,88 @@ if(empty($_SESSION['username']))
 
 
 
-                      
 
-                      <div class="Deconnexion">
-                              <nav>
-                                
-                                      <a href="deconnexion.php">Déconnexion</a>
-                              </nav>
-                      </div>
-                
+     
+
+<!--map-->
+
+    <div class="container-fluid menu">
+
+      <div class="row">
+
+          <div class="col-md-4">
+            
+<hr/>
+                <div class="depot_annonce">
+
                          
+                            <iframe 
+                                    name="droite"
+                                    class="mainframe" 
+                                    width="500"
+                                    height="500"
+                                    frameborder="0"
+                                    scrolling="no"
+                                    marginheight="0"
+                                    marginwidth="0"
+                                    src="depot_annonce.php">
+                                </iframe>
+              </div>
 
-                   
-                       
+          
+
+
 
 
           </div>
-    
-
-<hr />
 
 
-        <section> 
-                 <!--1er block-->
-                 <div class="produits_proche"> 
-                   
+          <div class="col-md-4">
+
+            <hr/>
+
+            <div id="map" style="width:100%;height:400px;"></div>         
+
+            <script>
+            function myMap() {
+              var mapCanvas = document.getElementById("map");
+              var mapOptions = {
+                center: new google.maps.LatLng(51.5, -0.2), zoom: 10
+              };
+              var map = new google.maps.Map(mapCanvas, mapOptions);
+            }
+            </script>
+
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChP88CsE61axaYpyERMBViIIEanve983o&callback=myMap"></script>
+          </div>
 
 
-                         <p> <img src="images/manette.jpg"/> </p><br />
-                         <p> A 5OO m </p>
-                </div> 
+           <div class="annonce">
+
+                         
+                            <iframe 
+                                    name="droite"
+                                    class="mainframe" 
+                                    width="450"
+                                    height="500"
+                                    frameborder="0"
+                                    scrolling="no"
+                                    marginheight="0"
+                                    marginwidth="0"
+                                    src="affichage_demande.php">
+                                </iframe>
+              </div>
 
 
-        
-                <!--2e block-->
-                 <div class="map"> 
-
-                       <p> <img src="images/prototype_map.png"/> </p>
-
-
-                </div>
+          <div class="col-md-4"></div>
 
 
 
-                <!--3e block-->
+            </div>
+        </div>
 
-          
-                 <div class="compte">
-
-                        <h1> <?php $_SESSION['username']; ?></h1>
-                        <hr />
-
-                        <img src="images/hugo_photo.jpg"/>
-                        <hr />
-
-                        <?php echo $_SESSION['mail']; ?>
-                 </div>
-
-                 
-              
-        </section>
-                 
-
-                   
-         
- 
    
-<hr />
-    <!-- bas de page -->
-        <footer>
 
-    	     <!-- premier bloc dans le bas de page -->
-	            <div id="aide">
-	   	        
-	   	                <h1>Besoin d'aide ?</h1><br />
-
-	   	                                 <p> <a href="mailto: hugo.demouy@orange.fr"> Contactez-nous </a></p><br />
-
-	   	                                 <p> Questions fréquentes </p><br />
-	   	                                 
-
-	   	        </div> <!-- fin du premier bloc -->
-
-	   	     <!-- second bloc -->
-
-	   	        <div id="Nous">
-	   	                 
-	   	                <h1> A propos de nous</h1><br />
-
-	   	                 <p> Nos engagements </p>
-
-	   	                             
-	   
-	        	
-	           </div>
-
-                <!-- dernier block-->
-	         	<div id="informations">
-
-              <h1> Informations légales</h1>
-
-                         <!-- faire en sorte de permettre à l'utilisateur de télécharger un fichier zip-->
-     	                 <p> <a href="dl.Me.zip"> Nos Conditions de Ventes</a> </p>
-
-                       <p> <a href="dl.mentions.zip"> Mentions légales</a> </p>
-
-                       <p> <a href="dl.Cookies.zip"> Utilisation des Cookies</a> </p>
-
-                       <p> <a href="dl.Fraudes.zip"> Alertes Fraudes</a> </p>
-
-        
-           </div>
-
-        </footer> <!--fin du bas de <page-->
-
-
-    </div> <!-- fin de la div id="corps" -->
-
-
-
-    <!-- mettre les scripts js ici-->
-
-</body> <!-- fin du body -->
-
-
-</html>  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
+  </body>
+</html> 

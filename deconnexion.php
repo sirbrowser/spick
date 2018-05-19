@@ -1,6 +1,8 @@
 <?php 
 
 session_start(); 
+
+$_SESSION = array();
 session_destroy(); 
-header('Location: test.php'); 
+header('Location: test2.php'); 
 ?>

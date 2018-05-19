@@ -20,8 +20,13 @@ $errorMessage ='';
     	$requete = $bdd -> prepare('SELECT username, password FROM utilisateur WHERE username=? AND password=?');
     	$requete -> execute(array($_POST['username'], $_POST['password']));
 
+        $donnes = $requete->fetch();
+
+
+      $isPasswordCorrect = password_verify($_POST['password'], $donnes['password'])
+
             /*si ils existent alors...*/
-              if($donnes = $requete->fetch())
+              if($donnes)
 
                     {//si pseudo et password bon alors connexion à la session
 
