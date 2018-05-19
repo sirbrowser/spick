@@ -13,7 +13,7 @@
  	<body>
         <div align="center">
  		<img src="signup.png" class="img-responsive"/>
-		 	<form action="cible.php" onsubmit="return verifForm(this)" method="POST" > <!--action='cible.php', avec cible.php qui s'occupera de traiter les données du formulaire-->
+		 	<form action="cible V_2.php" onsubmit="return verifForm(this)" method="POST" > <!--action='cible.php', avec cible.php qui s'occupera de traiter les données du formulaire-->
 
 	<!--&nbsp sert 
 	à l'espace--> 
@@ -23,7 +23,7 @@
                             <label>
                                 Nom : 
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="name" onblur="verifName(this)">
+                                    <input type="text" class="form-control" name="name" onblur="verifName(this)"> <span id="erreurName"></span>
                                 </div>
                             </label>
                         </td>
@@ -33,7 +33,7 @@
                             <label>
                                 Prénom : 
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="firstName" onblur="verifName(this)">
+                                    <input type="text" class="form-control" name="firstName" onblur="verifFirstName(this)"> <span id="erreurFirstName"> </span>
                                 </div>
                             </label>
                         </td>
@@ -43,7 +43,7 @@
                             <label>
                                 Date de naissance : 
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="date" onblur="verifName(this)">
+                                    <input type="text" class="form-control" name="date" onblur="verifDate(this)"> <span id="erreurDate"></span>
                                 </div>
                             </label>
                         </td>
@@ -53,7 +53,7 @@
 					        <label>
                                 Pseudo :  
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="username" onblur="verifName(this)">
+                                    <input type="text" class="form-control" name="username" onblur="verifPseudo(this)"> <span id="erreurPseudo"></span>
                                 </div>
 		                    </label>
 		                </td>
@@ -63,7 +63,7 @@
 	              	        <label>
                                 Mot de passe : 
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="password" onblur="verifName(this)">
+                                    <input type="password" class="form-control" name="password" onblur="verifPassword(this)"> <span id="erreurPassword"></span>
                                 </div>
 	              	        </label>
 	           	        </td>
@@ -73,7 +73,7 @@
                             <label>
                                 Mail : 
                                 <div class="input-group">
-                                    <input type="text" class="form-control" name="mail" placeholder="exemple@mail.fr" onblur="verifName(this)">
+                                    <input type="text" class="form-control" name="mail" placeholder="exemple@mail.fr" onblur="verifMail(this)"> <span id="erreurMail"></span>
                                 </div>
                             </label>
                         </td>
@@ -148,6 +148,7 @@
                                     var regex = /^[a-zA-Z-]+$/;
                                     if (!regex.test(champ.value))
                                     {
+                                        document.getElementById('erreurName').innerHTML = 'Le nom ne doit comporter que des minuscules, majuscules et tirets';
                                         surligne(champ, true);
                                         //champ.focus();
                                         return false;
@@ -167,6 +168,7 @@
                                     var regex = /^[a-zA-Z-]+$/;
                                     if (!regex.test(champ.value))
                                     {
+                                        document.getElementById('erreurFirstName').innerHTML = 'Le prénom ne doit comporter que des minuscules, majuscules et tirets';
                                         surligne(champ, true);
                                         //champ.focus();
                                         return false;
@@ -185,6 +187,7 @@
                                     var regex = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
                                     if (!regex.test(champ.value)) 
                                     {
+                                        document.getElementById('erreurDate').innerHTML = 'Veuillez respecter la syntaxe JJ/MM/AAAA';
                                         surligne(champ, true);
                                         //champ.focus();
                                         return false;
@@ -203,6 +206,7 @@
                                     var regex = /^[a-zA-Z0-9]{1,}$/;
                                 	if(champ.value.length < 4 || champ.value.length > 25 || !regex.test(champ.value))
                                 	{
+                                        document.getElementById('erreurPseudo').innerHTML = 'Minuscules, majuscules et chiffres autorisés et au moins 4 caractères';
                                 		surligne(champ, true);
                                         //champ.focus(); 
                                 		return false;
@@ -215,13 +219,25 @@
                                 	}
                                 }
 
+                                
+                                //hachage du mot de passe 
+                                <?php 
+
+
+                                $password_hache = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                                ?> 
+
+
+
+
+
 
                                 function verifPassword(champ)
                                 {
                                     re = /[0-9]/;
                                     if(!re.test(champ.value)) 
                                     {
-                        
+                                        document.getElementById('erreurPassword').innerHTML = 'Le mot de passe doit comporter au moins un chiffre, une minuscule, une majuscule et comporter au moins 6 caractères';
                                         //champ.focus();
                                         surligne(champ,true);
                                         return false;
@@ -230,6 +246,7 @@
                                     re = /[a-z]/;
                                     if(!re.test(champ.value)) 
                                     {
+                                        document.getElementById('erreurPassword').innerHTML = 'Le mot de passe doit comporter au moins un chiffre, une minuscule, une majuscule et comporter au moins 6 caractères';
                                         surligne(champ,true);
                                         //champ.focus();
                                         return false;
@@ -238,6 +255,7 @@
                                     re = /[A-Z]/;
                                     if(!re.test(champ.value)) 
                                     {
+                                        document.getElementById('erreurPassword').innerHTML = 'Le mot de passe doit comporter au moins un chiffre, une minuscule, une majuscule et comporter au moins 6 caractères';
                                         //champ.focus();
                                         surligne(champ,true);
                                         return false;
@@ -245,7 +263,7 @@
 
                                     if (champ.value.length < 6 || champ.value.length > 150)
                                     {
-                                        document.getElementById("message").innerHTML = "Le mot de passe doit faire 6 caractères minimum.";
+                                        document.getElementById('erreurPassword').innerHTML = 'Le mot de passe doit comporter au moins un chiffre, une minuscule, une majuscule et comporter au moins 6 caractères';
                                         surligne(champ, true);
                                         return false;
                                     }
@@ -264,6 +282,7 @@
 
                                 	if(!regex.test(champ.value))
                                 	{
+                                        document.getElementById('erreurMail').innerHTML = 'Veuillez saisir une adresse mail valide de la forme exemple@hotmail.fr';
                                 		surligne(champ, true);
                                         //champ.focus();
                                 		return false; 

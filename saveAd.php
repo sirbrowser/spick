@@ -13,7 +13,7 @@
 	}
 	
 	$requete = $bdd -> prepare('INSERT INTO advertisement(username,message,place,date) VALUES(?,?,?, NOW())'); 
-	$requete -> execute(array($_SESSION['username'], $_POST['message'], $_POST['adresse']));
+	$requete -> execute(array($_SESSION['username'], $_POST['message'], $_POST['place']));
 
 ?>
 
@@ -29,5 +29,3 @@
                               </nav>
                       </div>
 	</html>
-
-
