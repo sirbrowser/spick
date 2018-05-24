@@ -12,11 +12,7 @@
 }
 
 
-body
-{
-  background-image: url("fond-site.jpg");
 
-}
 
 #header /* 3 éléments de l'entête (logo/ barre de recherce / login)*/
 {
@@ -27,6 +23,12 @@ body
   justify-content: space-between;/*espace entre chaque boite*/ 
 }
 
+iframe
+{
+   border-style: solid;
+    border-color: black; 
+    padding: 5px 100px 90px 100px; 
+}
 
 .date
 {
@@ -62,8 +64,6 @@ section
 
 
 
-
-
 .produits_proche 
 {
     border-style: solid;
@@ -95,12 +95,22 @@ section
 }
 
 
-
-footer
+p
 {
-    display: flex;
-     padding-top: 25px; /*marge intérieur bas*/
+  margin : 0;
 }
+
+body {
+  
+  background-image: url("fond-site.jpg");
+}
+
+footer {
+
+    position: absolute;
+    bottom: 0;
+}
+
 
 #aide
 {
@@ -122,6 +132,9 @@ footer
    text-decoration: underline; 
    color: blue;
 }
+
+
+
 aside img
 { margin-right: 5px;  }
 
@@ -148,5 +161,9 @@ aside img
 }
 
 .menu {
-  height: 600px;
+  height: 401px;
+}
+
+.footer {
+  height: 300px;
 }

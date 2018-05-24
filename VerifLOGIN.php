@@ -15,13 +15,18 @@ $errorMessage ='';
  
      //recherche dans la base de données 
 
-    	$bdd = new PDO('mysql:host=localhost;dbname=monsite', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    	$bdd = new PDO('mysql:host=localhost;dbname=monsite', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
     	$requete = $bdd -> prepare('SELECT username, password FROM utilisateur WHERE username=? AND password=?');
     	$requete -> execute(array($_POST['username'], $_POST['password']));
 
+        $donnes = $requete->fetch();
+
+
+      $isPasswordCorrect = password_verify($_POST['password'], $donnes['password'])
+
             /*si ils existent alors...*/
-              if($donnes = $requete->fetch())
+              if($donnes)
 
                     {//si pseudo et password bon alors connexion à la session
 
@@ -48,7 +53,7 @@ $errorMessage ='';
                         //si le visiteur n'est pas reconnu dans la base de donnée
                         echo '<body onLoad="alert(\'Membre non reconnu...\')">';
                         //redirection vers la page d'acceuil
-                        echo'<meta http-equiv="refresh" content="0;URL=test.php">';
+                        echo'<meta http-equiv="refresh" content="0;URL=test2.php">';
 
                     }
 

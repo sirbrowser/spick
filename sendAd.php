@@ -14,18 +14,6 @@
 	
 	$requete = $bdd -> prepare('INSERT INTO advertisement(username,message,place,date) VALUES(?,?,?, NOW())'); 
 	$requete -> execute(array($_SESSION['username'], $_POST['message'], $_POST['place']));
+	$requete->closeCursor();
 
 ?>
-
-	<<!DOCTYPE html>
-	<html>
-
-	<div class="member_page">
-                              <nav>
-
-                              		<p> Votre annonce a bien été enregistrée, vous pouvez revenir à la page principale en cliquant <a href="page_membre.php">ici</a> !</p>
-
-
-                              </nav>
-                      </div>
-	</html>

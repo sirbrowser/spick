@@ -61,30 +61,23 @@
 
 	 	<div class="container-fluid space"></div>          <!-- ESPACE ENTRE BARRE RECHERCHE ET CARTE -->
 
-            <!-- date -->
-	 		  <div class="date">
 
-                                 <p>Aujourd'hui nous sommes le <?php echo date('d/m/Y h:i:s'); ?>.</p><!--affiche la date et l'heure-->
-                     </div>
-                     
-
-
+                  
 	 	<div class="container-fluid menu">
 	 		<div class="row">
 	 				<div class="col-md-4"></div>
 	 				<div class="col-md-4">
 			 			<div id="map" style="width:100%;height:400px;"></div>         
 
-						<script>
+					<script>
 						function myMap() {
 						  var mapCanvas = document.getElementById("map");
 						  var mapOptions = {
-						    center: new google.maps.LatLng(51.5, -0.2), zoom: 10
+						    center: new google.maps.LatLng(48.864716, 2.349014), zoom: 11.5
 						  };
 						  var map = new google.maps.Map(mapCanvas, mapOptions);
 						}
-						</script>
-
+					</script>
 						<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChP88CsE61axaYpyERMBViIIEanve983o&callback=myMap"></script>
 					</div>
 					<div class="col-md-4"></div>
@@ -94,6 +87,29 @@
             </div>
         </div>
 
+
+
+
+        <div class="container-fluid footer">
+        	<div class="row">
+	 				<div class="col-md-4"></div>
+	 				<div class="col-md-4">
+	 					<div align="center">
+
+		 					<h1> Informations légales</h1>
+
+	                         <!-- faire en sorte de permettre à l'utilisateur de télécharger un fichier zip-->
+	     	                 <p> <a href="dl.Me.zip"> Nos Conditions de Ventes</a> </p>
+
+	                       <p> <a href="dl.mentions.zip"> Mentions légales</a> </p>
+
+	                       <p> <a href="dl.Cookies.zip"> Utilisation des Cookies</a> </p>
+
+	                       <p> <a href="dl.Fraudes.zip"> Alertes Fraudes</a> </p>
+	                    </div>
+	 				</div>
+	 		</div>
+	 	</div>
    
 
 	 	

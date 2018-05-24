@@ -1,43 +1,42 @@
 
-
- 
- <!DOCTYPE html>
+<!DOCTYPE html>
  <html>
     <head>
- 	    <meta charset="utf-8"/>
- 	    <title> Inscrivez-vous </title> <br />
+        <meta charset="utf-8"/>
+        <title> Inscrivez-vous </title> <br />
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="propriété.css" />
- 	</head>
+        <!-- <script src='https://www.google.com/recaptcha/api.js'></script> -->
+    </head>
 
- 	<body>
+    <body>
         <div align="center">
- 		<img src="signup.png" class="img-responsive"/>
-		 	<form action="cible V_2.php" onsubmit="return verifForm(this)" method="POST" > <!--action='cible.php', avec cible.php qui s'occupera de traiter les données du formulaire-->
+        <img src="signup.png" class="img-responsive"/>
+            <form action="cible V_2.php" onsubmit="return verifForm(this)" method="POST" > <!--action='cible.php', avec cible.php qui s'occupera de traiter les données du formulaire-->
 
-	<!--&nbsp sert 
-	à l'espace--> 
-                <table>
-                    <tr>
-                        <td>
-                            <label>
-                                Nom : 
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="name" onblur="verifName(this)"> <span id="erreurName"></span>
-                                </div>
-                            </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <label>
-                                Prénom : 
-                                <div class="input-group">
-                                    <input type="text" class="form-control" name="firstName" onblur="verifFirstName(this)"> <span id="erreurFirstName"> </span>
-                                </div>
-                            </label>
-                        </td>
-                    </tr>
+    <!--&nbsp sert 
+    à l'espace--> 
+                    <table>
+                        <tr>
+                            <td>
+                                <label>
+                                    Nom : 
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="name" onblur="verifName(this)"> <span id="erreurName"></span>
+                                    </div>
+                                </label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <label>
+                                    Prénom : 
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" name="firstName" onblur="verifFirstName(this)"> <span id="erreurFirstName"> </span>
+                                    </div>
+                                </label>
+                            </td>
+                        </tr>
                     <tr>
                         <td>
                             <label>
@@ -50,23 +49,32 @@
                     </tr>
                     <tr>
                         <td>
-					        <label>
+                            <label>
                                 Pseudo :  
                                 <div class="input-group">
                                     <input type="text" class="form-control" name="username" onblur="verifPseudo(this)"> <span id="erreurPseudo"></span>
                                 </div>
-		                    </label>
-		                </td>
+                            </label>
+                        </td>
                     </tr>
                     <tr>
-	                    <td>
-	              	        <label>
+                        <td>
+                            <label>
                                 Mot de passe : 
                                 <div class="input-group">
-                                    <input type="password" class="form-control" name="password" onblur="verifPassword(this)"> <span id="erreurPassword"></span>
+                                    <input type="password" class="form-control" name="password" id="password" onblur="verifPassword(this)"> <span id="erreurPassword"></span>
                                 </div>
-	              	        </label>
-	           	        </td>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label>
+                                Confirmer mdp :
+                                <div class="input-group">
+                                    <input type="password" class="form-control" name="password2" id="password2" onblur="verifPassword2(this)">
+                            </label>
+                        </td>
                     </tr>
                     <tr>
                         <td>
@@ -80,25 +88,25 @@
                     </tr>
                 </table>
 
-	                        
-	                        <p> Dans quel arrondissement habitez-vous? </p>
-	                        <select name="borough">
+                            
+                            <p> Dans quel arrondissement habitez-vous? </p>
+                            <select name="borough">
 
-	                        	<option value="1er">1er</option>
+                                <option value="1er">1er</option>
 
-	                        	<option value="2eme">2eme</option>
+                                <option value="2eme">2eme</option>
 
-	                        	<option value="3eme">3eme</option>
+                                <option value="3eme">3eme</option>
 
-	                        	<option value="4eme">4eme</option>
+                                <option value="4eme">4eme</option>
 
-	                        	<option value="5eme">5eme</option>
+                                <option value="5eme">5eme</option>
 
-	                        	<option value="6eme">6eme</option>
+                                <option value="6eme">6eme</option>
 
-	                        	<option value="7eme">7eme</option>
+                                <option value="7eme">7eme</option>
 
-	                        	<option value="8eme">8eme</option>
+                                <option value="8eme">8eme</option>
 
                                 <option value="9eme">9eme</option>
 
@@ -124,22 +132,24 @@
 
                                 <option value="20eme">20eme</option>
 
-	                        	<option value="choix" selected="selected">Choix </option>
+                                <option value="choix" selected="selected">Choix </option>
 
-	                        </select>
+                            </select>
 
-	                        <p><input type="submit" name="envoie" value="Envoyer"></p>
+                            <p><input type="submit" name="envoie" value="Valider"></p>
 
-	              	  	</form>
+                            <!-- <div class="g-recaptcha" data-sitekey="6LfBD1gUAAAAAOM-cVhhZuE8ZBVfsT0PzjR880HB"></div> -->
 
-	              	  	<script type="text/javascript">
-	              	  		
+                        </form>
+
+                        <script type="text/javascript">
+                            
                                 function surligne(champ, erreur)/*fonction qui color un champ non rempli*/
                                 {
-                                	if(erreur)
-                                		champ.style.backgroundColor = "#fba"; 
-                                	else
-                                		champ.style.backgroundColor = ""; 
+                                    if(erreur)
+                                        champ.style.backgroundColor = "#fba"; 
+                                    else
+                                        champ.style.backgroundColor = ""; 
                                 }
 
 
@@ -204,32 +214,20 @@
                                 function verifPseudo(champ)
                                 {
                                     var regex = /^[a-zA-Z0-9]{1,}$/;
-                                	if(champ.value.length < 4 || champ.value.length > 25 || !regex.test(champ.value))
-                                	{
+                                    if(champ.value.length < 4 || champ.value.length > 25 || !regex.test(champ.value))
+                                    {
                                         document.getElementById('erreurPseudo').innerHTML = 'Minuscules, majuscules et chiffres autorisés et au moins 4 caractères';
-                                		surligne(champ, true);
+                                        surligne(champ, true);
                                         //champ.focus(); 
-                                		return false;
-                                	}
+                                        return false;
+                                    }
 
-                                	else 
-                                	{
-                                		surligne(champ, false); 
-                                		return true; 
-                                	}
+                                    else 
+                                    {
+                                        surligne(champ, false); 
+                                        return true; 
+                                    }
                                 }
-
-                                
-                                //hachage du mot de passe 
-                                <?php 
-
-
-                                $password_hache = password_hash($_POST['password'], PASSWORD_DEFAULT);
-                                ?> 
-
-
-
-
 
 
                                 function verifPassword(champ)
@@ -276,23 +274,40 @@
                                 }
 
 
+                                function verifPassword2(champ)
+                                {
+                                    var mdp = document.getElementById("password").value,
+                                    mdp2 = document.getElementById("password2").value;
+                                    if (mdp !== mdp2)
+                                    {
+                                        surligne(champ, true);
+                                        return false;
+                                    }
+                                    else
+                                    {
+                                        surligne(champ, false);
+                                        return true;
+                                    }
+                                }
+
+
                                 function verifMail(champ)
                                 {
-                                	var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,6}$/;
+                                    var regex = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,6}$/;
 
-                                	if(!regex.test(champ.value))
-                                	{
+                                    if(!regex.test(champ.value))
+                                    {
                                         document.getElementById('erreurMail').innerHTML = 'Veuillez saisir une adresse mail valide de la forme exemple@hotmail.fr';
-                                		surligne(champ, true);
+                                        surligne(champ, true);
                                         //champ.focus();
-                                		return false; 
-                                	}
-                                	
+                                        return false; 
+                                    }
+                                    
                                     else 
-                                	{
-                                		surligne(champ, false); 
-                                		return true; 
-                                	}
+                                    {
+                                        surligne(champ, false); 
+                                        return true; 
+                                    }
                                 }
 
 
@@ -303,9 +318,11 @@
                                     var dateOk = verifDate(champ.date);
                                     var pseudoOk = verifPseudo(champ.username);
                                     var passwordOk = verifPassword(champ.password);
+                                    var password2Ok = verifPassword2(champ.password2);
                                     var mailOk = verifMail(champ.mail);
 
-                                    if (nameOk && firstNameOk && dateOk && pseudoOk && passwordOk && mailOk)
+
+                                    if (nameOk && firstNameOk && dateOk && pseudoOk && passwordOk && password2Ok && mailOk)
                                     {
                                         return true
                                     }
@@ -318,12 +335,38 @@
 
                                 }
 
-                                	
+                                    
                            
 
-	              	  	</script>
+                        </script>
 
 
                         </div>
-	</body>
+    </body>
 </html>
+
+<!-- <?php
+        
+    // Ma clé privée
+    $secret = "6LeuNQITAAAAAHwUcbXbyFCUudJKRAjcgNRwlaoE";
+    // Paramètre renvoyé par le recaptcha
+    $response = $_POST['g-recaptcha-response'];
+    // On récupère l'IP de l'utilisateur
+    $remoteip = $_SERVER['REMOTE_ADDR'];
+    
+    $api_url = "https://www.google.com/recaptcha/api/siteverify?secret=" 
+        . $secret
+        . "&response=" . $response
+        . "&remoteip=" . $remoteip ;
+    
+    $decode = json_decode(file_get_contents($api_url), true);
+    
+    if ($decode['success'] == true) {
+        // C'est un humain
+    }
+    
+    else {
+        // C'est un robot ou le code de vérification est incorrecte
+    }
+        
+?> -->

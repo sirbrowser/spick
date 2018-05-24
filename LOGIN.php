@@ -9,51 +9,54 @@ session_start();
     <head>
  	    <meta charset="utf-8"/>
  	    <title> Connectez-vous </title> <br />
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="propriété.css" />
  	</head>
 
- 	<body>
-		 	<form method="POST"/> 
+<body>
+  <div align="center">
+    <img src="seconnecter.png" class="img-responsive"/>
+		<form method="POST"/> 
+	      	<table>
+		        <tr>
+		            <td>
+		                <label>
+		                    Pseudo : 
+		                    <div class="input-group">
+		                        <input type="text"  name="username" class="form-control" onblur="verifPseudo(this)"/>
+		                    </div>
+		                </label>
+		            </td>
+		        </tr>
+		        <tr>
+		            <td>
+		                <label>
+		                    Mot de passe : 
+		                    <div class="input-group">
+		                        <input type="password" name="password" class="form-control"  onblur="verifPassword(this)"/>
+		                    </div>
+		                </label>
+		            </td>
+		        </tr>
+		        <tr>
+		            <td>
+				        <label>
+					        <p>
+					        	</br>
+					            <button class="btn btn-info btn-lg" type="submit" name="envoie" value="Envoyer"> Envoyer </button>
+						    </p>
+						</label>
+					</td>
+				</tr>
+		    </table>      
+	  	</form>          
+    <p>  	  			
+	    
 
-	 			<p>
-					<label>
-
-							&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-
-		                    Pseudo :<input type="text" name ="username" placehorder="pseudo" size="30" onblur="verifPseudo(this)"/>
-		            </label>
-
-		        </p>
-		         
-
-
-
- 				<p>
-	              	<label>
-
-	              	  		 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-
-	              	  			Password :<input type="password" name = "password" size="30" placeholder="Mot de passe" onblur="VerifPassword(this)"/>
-	              	</label>
-	            </p>
-	          
-	            
-
-	            <p>  	  			
-	              	 <label>
-
-
-	                        <p><input type="submit" name="envoie" value="Envoyer">
-	                        </p>
-	                </label>
-
-	            </p>  &nbsp&nbsp&nbsp
-
-	                         <a href="MDP_Forget.php"> Mot de passe oublié ? </a> 
-
-	              	  	</form>
-
-
-	</body>
+	  </p>
+    <a href="MDP_Forget.php"> Mot de passe oublié ? </a> 
+  </div>
+</body>
 </html>
 	              	  
 
@@ -69,7 +72,7 @@ $errorMessage ='';
  
      //recherche dans la base de données 
 
-    	$bdd = new PDO('mysql:host=localhost;dbname=monsite', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+    	$bdd = new PDO('mysql:host=localhost;dbname=monsite', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 
     	$requete = $bdd -> prepare('SELECT username, password FROM utilisateur WHERE username=? AND password=?');
     	$requete -> execute(array($_POST['username'], $_POST['password']));
@@ -102,7 +105,7 @@ $errorMessage ='';
                         //si le visiteur n'est pas reconnu dans la base de donnée
                         echo '<body onLoad="alert(\'Membre non reconnu...\')">';
                         //redirection vers la page d'acceuil
-                        echo'<meta http-equiv="refresh" content="0;URL=test.php">';
+                        echo'<meta http-equiv="refresh" content="0;URL=test2.php">';
 
                     }
 

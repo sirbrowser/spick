@@ -2,44 +2,63 @@
 
 ?>
 
+
+<head>
+	<meta charset="UTF-8"> 
+    <title> Deposer un produit </title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="propriété.css" />
+</head>
+
 <form action="saveProduit.php" method="POST" autocomplete="off">
-	<h2> Des produits à mettre en ligne ? </h2>
- 
-	<p> Pseudo : <?php echo htmlspecialchars($_SESSION['username']); ?></p>
-	<p>
-	<label>
-		Nom du produit: <input type="text" name="nom_produit"/>
-	</label>
-	</p>
+	<div align="center">
 
-	<p> Le type:</p>
- 			<select name="type_produit">
-	                        	<!-- <option value="Electroménager">Electroménager</option>-->
+		<img src="depotproduit.png" class="img-responsive"/>
 
-	                        	<option value="Alimentation">Alimentation</option>
+		<p> Pseudo : <?php echo htmlspecialchars($_SESSION['username']); ?></p>
+		<p>
+		<label>
+			Nom du produit : 
+			<div class="input-group">
+				<input type="text" name="nom_produit" class="form-control"/>
+			</div>
+		</label>
+		</p> <br/>
 
-	                        	<option value="Vaisselle">Vaisselle 
-	                        	</option>
+		<p> Le type :</p>
+	 			<select name="type_produit">
+		                        	<!-- <option value="Electroménager">Electroménager</option>-->
 
-	                        	<option value="Jouets/électronique">Jouets/loisirs/électronique </option>
+		                        	<option value="Alimentation">Alimentation</option>
 
-	                        	<option value="Electroménager">Electroménager</option>
+		                        	<option value="Vaisselle">Vaisselle 
+		                        	</option>
 
-	                        	
-	        </select>
+		                        	<option value="Jouets/électronique">Jouets/loisirs/électronique </option>
 
-   <p>
-   	<label>
-   		Quantité : <input type="text" name="quantité_produit"/>
-   	</label>
-   </p>
+		                        	<option value="Electroménager">Electroménager</option>
 
-	<textarea name="commentaires" rows="6" cols="35" id="commentaires"></textarea><!-- permet der faire apparaître une fenêtre afin de laisser l'utilisateur nous informer sur le produit-->
-	
+		                        	
+		        </select>
 
-	<p><input type="submit" name="valide" value="valider"/></p>
+	   <p>
+	   	<label><br />
+	   		Quantité : 
+	   		<div class="input-group">
+	   			<input type="text" name="quantité_produit" class="form-control"/>
+	   		</div>
+	   	</label>
+	   </p>
 
-	 <br /><br />
+	   <br/>
+		<textarea name="commentaires" rows="6" cols="35" id="commentaires"></textarea><!-- permet der faire apparaître une fenêtre afin de laisser l'utilisateur nous informer sur le produit-->
+		
+		<br/>
+		<p><button class="btn btn-info btn-lg" type="submit" name="valide" value="Valider"> Envoyer </button></p>
+		
+
+		 <br /><br />
+	</div>
 
 
 </form>
